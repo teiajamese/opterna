@@ -1,0 +1,227 @@
+/*
+	Theme Name: Salient Child
+	Theme URI: http://www.themenectar.com
+	Author: ThemeNectar
+	Author URI: http://themenectar.com
+	Description: An Ultra Responsive Multi-Purpose Theme.
+	Template:     salient
+	Version: 7.0.7
+	License: GNU General Public License version 3.0
+	License URI: http://www.gnu.org/licenses/gpl-3.0.html
+
+-------------------------------------------------------------------------*/
+
+/* Product Page Template Styles*/
+
+.text-center {
+    text-align: center;
+}
+
+.related-product-section {
+    margin-top: 30px;
+}
+
+.related.products h2.text-center {
+    font-family: Montserrat;
+    font-size: 60px;
+    line-height: 55px;
+    font-weight: 400;
+}
+
+.related.products h3 {
+    font-family: Lato;
+    font-size: 32px;
+    line-height: 32px;
+    font-weight: 300;
+}
+
+.related.products .span_12,
+.related.products .span_3 {
+    float: left;
+}
+
+.span_3.related-product {
+    margin: 15px 15px 15px 0px;
+}
+
+.span_3.related-product h3 {
+    margin-bottom: 20px;
+}
+
+.span_3.related-product .img-with-aniamtion-wrap {
+    min-height: 180px;
+}
+
+.product-detail-page p:last-child {
+    padding-bottom: 10px;
+}
+
+.product-detail-page p {
+    padding-bottom: 0px;
+}
+
+.product-description-image {
+    float: left;
+    margin: 20px 0px;
+}
+
+.product-description {
+    margin: 0px 10px 15px 0px;
+}
+
+.product-features-section {
+    float: left;
+    margin: 20px 0;
+}
+
+.product-description-image .images {
+    float: right;
+}
+
+.product-description-image .images img {
+    float: right;
+}
+
+.product-categories li {
+    line-height: 18px;
+}
+
+.product-categories .children li:before {
+    content: "---";
+    display: inline-block;
+    padding-right: 5px;
+    color: #F4AA58;
+    letter-spacing: 2px;
+}
+
+.product-categories .children li a {
+    display: inline-block !important;
+}
+
+.product-categories .children {
+    margin: 0 !important;
+}
+
+.product-categories .children .children li:before {
+    content: "-------";
+    letter-spacing: 1px;
+}
+
+.page-title {
+    font-size: 70px;
+}
+
+.cat-parent .children {
+    display: none;
+}
+
+li.cat-parent > a:before {
+    content: "+";
+    padding-right: 10px;
+    font-size: 30px;
+    vertical-align: text-bottom;
+}
+
+li.cat-parent > a.opened:before {
+    content: "-";
+    font-size: 36px;
+    vertical-align: text-bottom;
+}
+
+.product-description-image img.attachment-shop_single {
+    float: right;
+    padding-left: 30px;
+    padding-bottom: 0px;
+    max-width: 400px;
+    margin-bottom: 5px;
+}
+
+.archive.tax-product_cat .woocommerce-ordering,
+.archive.tax-product_tag .woocommerce-ordering {
+    display: none;
+}
+
+.facetwp-checkbox.checked,
+.facetwp-link.checked {
+    color: #f29041;
+}
+
+#text-7 .textwidget .facetwp-type-checkboxes {
+    max-height: 100% !important;
+}
+
+.facetwp-depth:hover {
+    color: #333;
+}
+
+.facetwp-checkbox {
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.facetwp-checkbox:hover {
+    color: #f29041;
+}
+
+#sidebar h4 {
+    text-transform: none !important;
+}
+
+.facetwp-counts {
+    display: inline;
+    padding: 3px;
+}
+
+.archive.tax-product_cat .page-header-bg-image,
+.archive.tax-product_tag .page-header-bg-image,
+.post-type-archive .page-header-bg-image {
+    background-position: 0 -100px !important;
+}
+
+.post-type-archive .page-title {
+    display: none;
+}
+
+.archive.tax-product_cat #header-space,
+.archive.tax-product_tag #header-space {
+    display: none;
+}
+.woocommerce .page-header-bg-image{
+    background-position: 0% 8% !important;
+}
+body[data-fancy-form-rcs="1"] input[type='checkbox'] + label{
+    margin-bottom: 15px;
+}
+.child-checkbox{
+    margin-left:31px;
+}
+.woocommerce .product-wrap{
+    height:200px;
+    min-height: 200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.isotope-reset{
+    background: #f29041;
+    text-align: center;
+}
+.isotope-reset:hover{
+    background: #FFC022;
+}
+a .isotope-reset {
+    color:#fff;
+    margin-top: 20px;
+}
+body[data-fancy-form-rcs="1"] .span_3 .fancy-select-wrap{
+    margin-bottom: 27px;
+}
+h3.prod-name{
+    font-size: 14px;
+    line-height: 32px;
+    font-weight: 400;
+}
+@media (min-width: 690px){
+    .span_4 {
+        width: 30%;
+    }
+}
