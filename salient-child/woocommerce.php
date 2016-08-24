@@ -92,14 +92,15 @@ if (!function_exists('loop_columns')) {
 						        $wc_query->the_post(); 
 						        
 						?>
-						       	<li class="col span_4 
+						       	<li class="col span_4 prod-container
 						        <?php 
 						        	$prodID = get_the_ID();
 						        	$loc = get_field('region');
 									if($loc){
+										foreach($loc as $l)
 										//$loc = preg_replace('/\s+/', '', $loc);
 										//echo ' '. $loc; 
-										echo $loc;
+										echo $l;
 									}
 								    $product_terms = wp_get_object_terms( $prodID,  'product_cat' );
 									if ( ! empty( $product_terms ) ) {
@@ -114,6 +115,7 @@ if (!function_exists('loop_columns')) {
 										}
 									}
 								?>">
+								<div class="product-item">
 								<?php
 										 //woocommerce_template_loop_product_thumbnail();
 										 $thumbnail_id = get_post_thumbnail_id($prodID);
@@ -125,7 +127,7 @@ if (!function_exists('loop_columns')) {
 						        				echo $thumbnail_object;
 						        			}
 						        			else{
-						        				echo get_site_url(). '/wp-content/plugins/woocommerce/assets/images/placeholder.png';
+						        				echo get_site_url(). '/wp-content/plugins/woocommerce/assets/images/placeholder.png"); background-size:contain;';
 						        			}
 						        		?>")'>
 						        		
@@ -133,7 +135,17 @@ if (!function_exists('loop_columns')) {
 						        		
 						        	</div>
 						        	</a>
+						        </div>
+						        <div class="product-title">
 						        	<h3 class="prod-name"><?php the_title();?> </h3>
+						        	<?php if($loc == 'mideast'){
+						        		echo '<p> * Only available in the Middle East </p>';
+						        	} 
+						        	else{
+
+						        	}
+						        	?>
+						        </div>
 						        </li>
 								
 						<?php endwhile; ?>
@@ -151,7 +163,8 @@ if (!function_exists('loop_columns')) {
 				<div id="options">
 				Availability
 				<select class="location">
-					<option value="*" id="*">Everywhere</option>
+					<option value="*" id="*">&nbsp;</option>
+					<option value=".mideastus" id="everywhere">Everywhere</option>
 					<option value=".mideast" id="mideast">Middle East</option>
 					<option value=".us" id="us">US</option>
 				</select>
