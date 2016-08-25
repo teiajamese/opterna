@@ -14,9 +14,23 @@ jQuery(document).ready(function () {
             });
         jQuery(this).parent('.cat-parent').children('.children').toggle(500);
     });
+    
 
+   /* jQuery(window).resize(function(){
+        if(jQuery(window).width() < 1000){
+            jQuery('.mobile-filter').show();
+            jQuery('#options').hide();
+        }
+        else{
+            jQuery('.mobile-filter').hide();
+            jQuery('#options').show();
+            jQuery('.mobile-filter #options').hide();
 
-
+        }
+    });*/
+    jQuery('.filters').click(function(){
+            jQuery('#options').toggle();
+        });
 
 });
 
@@ -78,7 +92,7 @@ jQuery(window).load(function() {
       
         
 
-     jQuery("a .isotope-reset").click(function(e){
+    jQuery("a .isotope-reset").click(function(e){
         e.preventDefault();
         jQuery(".grid").isotope({
             filter: '*'
@@ -86,6 +100,13 @@ jQuery(window).load(function() {
        jQuery(':checkbox').removeAttr('checked');
        jQuery("select.location").val('*').change();
     });
+
+     jQuery('a .isotope-done').click(function(e){
+        e.preventDefault();
+        jQuery(".mobile-filter #options").slideUp();
+     });
+
+     
 });
 
 

@@ -77,6 +77,68 @@ if (!function_exists('loop_columns')) {
 
 			<div id="post-area" class="col span_9">
 				<h1 class="page-title"><?php the_title(); ?></h1>
+				
+				<div class="mobile-filter">
+				<p class="filters">Filter Products</p>
+
+					<div id="options">
+						Availability By Region
+						<select class="location">
+							<option value="*" id="*">Select Region</option>
+							<option value=".mideastus" id="everywhere">Everywhere</option>
+							<option value=".mideast" id="mideast">Middle East</option>
+							<option value=".us" id="us">US</option>
+						</select>
+
+						Product Categories
+						<div>
+										<!--<ul class="filters-select">
+							<li data-filter="*">All</li>-->
+						 <?php $product_terms = get_terms( 'product_cat' );
+							if ( ! empty( $product_terms ) ) {
+								if ( ! is_wp_error( $product_terms ) ) {
+										foreach( $product_terms as $term ) {
+											 $prodID = $term->term_id;
+											 $children = get_terms( 'product_cat', array(
+												        'orderby'    => 'count',
+												        'hide_empty' => true,
+												        'parent' => $prodID,
+												) );
+										if($term->parent == 0) {
+												
+												$prodName = $term->name; 
+												$prodName = preg_replace('/\s+/', '', $prodName);
+												echo '<input type="checkbox" value=".mobile-'.$prodName.'" id="mobile-'.$prodName.'"/><label for="mobile-'.$prodName.'">'.esc_html($term->name).'</label>';
+
+												if( ! empty( $children ) ) {
+													echo '<div class="child-checkbox">';
+													foreach($children as $child){
+														$childName = $child->name;
+														$childName = preg_replace('/\s+/', '', $childName);
+												    	echo '<input type="checkbox" value=".mobile-'.$childName.'" id="mobile-'.$childName.'"/><label for="mobile-'.$childName.'">'.esc_html($child->name).'</label>';
+													}
+													echo '</div>';
+												}
+											} 
+											
+										}
+									}
+								}
+						?>
+						</div>
+						<!--</ul>-->
+						
+						<a href="">
+							<div class="isotope-reset half">
+							Reset
+							</div>
+							<div class="isotope-done half">
+							Done
+							</div>
+						</a>
+					</div>
+
+				</div>
 				<div class="facetwp-template">
 					<ul class="products grid">
 						<?php 
@@ -108,7 +170,9 @@ if (!function_exists('loop_columns')) {
 												foreach( $product_terms as $term ) {
 													$prodName = $term->name; 
 													$prodName = preg_replace('/\s+/', '', $prodName);
+													$mobileProdName = 'mobile-'.$prodName;
 													echo ' '. $prodName;
+													echo ' '.$mobileProdName;
 													
 												}
 
@@ -138,12 +202,18 @@ if (!function_exists('loop_columns')) {
 						        </div>
 						        <div class="product-title">
 						        	<h3 class="prod-name"><?php the_title();?> </h3>
-						        	<?php if($loc == 'mideast'){
-						        		echo '<p> * Only available in the Middle East </p>';
-						        	} 
-						        	else{
+						        	<?php 
+						        	if($loc){
+						        		foreach($loc as $l){
+							        		if($l == 'mideast'){
+							        		echo '<p> * Only available in the Middle East </p>';
+								        	} 
+								        	else{
 
+								        	}
+							        	}
 						        	}
+						        	
 						        	?>
 						        </div>
 						        </li>
@@ -161,57 +231,57 @@ if (!function_exists('loop_columns')) {
 			</div><!--/post-area-->
 			<div class="col span_3">
 				<div id="options">
-				Availability
-				<select class="location">
-					<option value="*" id="*">&nbsp;</option>
-					<option value=".mideastus" id="everywhere">Everywhere</option>
-					<option value=".mideast" id="mideast">Middle East</option>
-					<option value=".us" id="us">US</option>
-				</select>
+					Availability By Region
+					<select class="location">
+						<option value="*" id="*">Select Region</option>
+						<option value=".mideastus" id="everywhere">Everywhere</option>
+						<option value=".mideast" id="mideast">Middle East</option>
+						<option value=".us" id="us">US</option>
+					</select>
 
-				Product Categories
-				<div>
-								<!--<ul class="filters-select">
-					<li data-filter="*">All</li>-->
-				 <?php $product_terms = get_terms( 'product_cat' );
-					if ( ! empty( $product_terms ) ) {
-						if ( ! is_wp_error( $product_terms ) ) {
-								foreach( $product_terms as $term ) {
-									 $prodID = $term->term_id;
-									 $children = get_terms( 'product_cat', array(
-										        'orderby'    => 'count',
-										        'hide_empty' => true,
-										        'parent' => $prodID,
-										) );
-								if($term->parent == 0) {
-										
-										$prodName = $term->name; 
-										$prodName = preg_replace('/\s+/', '', $prodName);
-										echo '<input type="checkbox" value=".'.$prodName.'" id="'.$prodName.'"/><label for="'.$prodName.'">'.esc_html($term->name).'</label>';
+					Product Categories
+					<div>
+									<!--<ul class="filters-select">
+						<li data-filter="*">All</li>-->
+					 <?php $product_terms = get_terms( 'product_cat' );
+						if ( ! empty( $product_terms ) ) {
+							if ( ! is_wp_error( $product_terms ) ) {
+									foreach( $product_terms as $term ) {
+										 $prodID = $term->term_id;
+										 $children = get_terms( 'product_cat', array(
+											        'orderby'    => 'count',
+											        'hide_empty' => true,
+											        'parent' => $prodID,
+											) );
+									if($term->parent == 0) {
+											
+											$prodName = $term->name; 
+											$prodName = preg_replace('/\s+/', '', $prodName);
+											echo '<input type="checkbox" value=".'.$prodName.'" id="'.$prodName.'"/><label for="'.$prodName.'">'.esc_html($term->name).'</label>';
 
-										if( ! empty( $children ) ) {
-											echo '<div class="child-checkbox">';
-											foreach($children as $child){
-												$childName = $child->name;
-												$childName = preg_replace('/\s+/', '', $childName);
-										    	echo '<input type="checkbox" value=".'.$childName.'" id="'.$childName.'"/><label for="'.$childName.'">'.esc_html($child->name).'</label>';
+											if( ! empty( $children ) ) {
+												echo '<div class="child-checkbox">';
+												foreach($children as $child){
+													$childName = $child->name;
+													$childName = preg_replace('/\s+/', '', $childName);
+											    	echo '<input type="checkbox" value=".'.$childName.'" id="'.$childName.'"/><label for="'.$childName.'">'.esc_html($child->name).'</label>';
+												}
+												echo '</div>';
 											}
-											echo '</div>';
-										}
-									} 
-									
+										} 
+										
+									}
 								}
 							}
-						}
-				?>
-				</div>
-				<!--</ul>-->
-				
-				<a href="">
-					<div class="isotope-reset">
-					Reset
+					?>
 					</div>
-				</a>
+					<!--</ul>-->
+					
+					<a href="">
+						<div class="isotope-reset">
+						Reset
+						</div>
+					</a>
 				</div><!-- End of options div -->
 
 			</div>
