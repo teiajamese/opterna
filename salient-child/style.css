@@ -247,7 +247,7 @@ body[data-fancy-form-rcs="1"] .span_3 .fancy-select-wrap{
 .icon-angle-up.top-icon{
     display:none;
 }
-.mobile-filter #options{
+.mobile-filter #options,.mobile-filter{
     display:none;
 }
 p.filters{
@@ -256,6 +256,17 @@ p.filters{
 .half{
     width:46%;
     float: left;
+}
+a#logo img{
+        max-height:147px;
+    }
+span.region{
+    display: block;
+    color: #515151;
+    font-size: 15px;
+}
+.posted_in{
+    display: block;
 }
 @media (min-width: 690px){
     .span_4 {
@@ -271,9 +282,27 @@ p.filters{
     }
     p.filters{
         display: block;
+        border: 1px solid #e0e0e0;
+        width: 164px;
+        text-align: center;
+        padding: 4px;
+        border-radius: 5px;
+        margin-bottom: 25px;
+        background: #fff;
     }
     .mobile-filter{
         display:block;
+    }
+    .mobile-filter span.arrow{
+        font-size: 10px;
+        margin-left: 4px;
+    }
+    p.filters i{
+        margin-left: 5px;
+    }
+    p.filters.open, .open i{
+        background: #f29041;
+        color: #fff;
     }
 }
 @media (max-width:730px){
@@ -282,5 +311,16 @@ p.filters{
     }
     div.prod-item{
         height:120px;
+    }
+}
+@media (min-width:1000px) and (max-width: 1114px){
+    a#logo img{
+        max-height:108px;
+    }
+   html .ascend #header-outer[data-full-width="true"][data-cart="true"] header#top nav > ul.buttons, .ascend #header-outer[data-full-width="true"] header#top nav > ul.product_added.buttons, .ascend #boxed #header-outer[data-cart="true"] header#top nav > ul.buttons, .ascend #boxed #header-outer header#top nav > ul.product_added.buttons{
+        padding-right: 40px !important;
+    }
+    .ascend #header-outer .cart-menu{
+        padding-left:20px !important;
     }
 }

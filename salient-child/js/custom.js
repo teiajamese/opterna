@@ -28,10 +28,25 @@ jQuery(document).ready(function () {
 
         }
     });*/
-    jQuery('.filters').click(function(){
-            jQuery('#options').toggle();
-        });
+   
 
+    jQuery('.filters').click(function(){
+        
+        jQuery('.mobile-filter #options').toggle();
+        /*var text = jQuery('span.arrow').text();   
+        jQuery('span.arrow').text( 
+        text == "&#9650;" ? "&#9660;" : "&#9650;");*/
+        jQuery('.filters i').not(this).removeClass('fa-angle-down');
+        jQuery('i').toggleClass('fa-angle-up');
+        if (jQuery('i').is('.fa-angle-up')){
+            jQuery('i').removeClass('fa-angle-down');
+            jQuery('.filters').addClass("open");
+        }
+        else{
+            jQuery('i').addClass('fa-angle-down');
+            jQuery('.filters').removeClass("open");
+        }
+    });
 });
 
 jQuery(window).load(function() {
@@ -39,6 +54,10 @@ jQuery(window).load(function() {
     var grid = jQuery('.grid').isotope({
 
     });
+    if (jQuery('input:checked')){
+        var category = jQuery('input:checked').attr("value");
+        grid.isotope({ filter: category });
+    }
 // filter with selects and checkboxes
     var checkboxes = jQuery('#options input');
     var selects = jQuery('#options select');
@@ -82,7 +101,7 @@ jQuery(window).load(function() {
         }
           // get filter value from option value
           //var filterValue = this.value;
-
+          //alert(jQuery('div:not(".isotope-hidden")').length);
           grid.isotope({ filter: filterValue });
     });
         // combine inclusive filters
@@ -104,6 +123,9 @@ jQuery(window).load(function() {
      jQuery('a .isotope-done').click(function(e){
         e.preventDefault();
         jQuery(".mobile-filter #options").slideUp();
+         jQuery('.filters').removeClass("open");
+         jQuery('i').removeClass('fa-angle-up');
+         jQuery('i').addClass('fa-angle-down');
      });
 
      

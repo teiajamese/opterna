@@ -40,10 +40,11 @@ if (!function_exists('loop_columns')) {
 				
 				switch($single_product_layout) {
 					case 'no-sidebar':
+						echo '<a href="'.get_site_url().'/shop">Back to Products</a>';
 						woocommerce_content(); 
 						break; 
 					case 'right-sidebar':
-
+						echo '<a href="'.get_site_url().'/shop">Back to Products</a>';
 						echo '<div id="post-area" class="col span_9">';
 							woocommerce_content(); 
 						echo '</div><!--/span_9-->';
@@ -55,6 +56,7 @@ if (!function_exists('loop_columns')) {
 						break; 
 						
 					case 'left-sidebar':
+						echo '<a href="'.get_site_url().'/shop">Back to Products</a>';
 						echo '<div id="sidebar" class="col span_3">';
 						 	get_sidebar(); 
 						echo '</div><!--/span_9-->';
@@ -65,6 +67,7 @@ if (!function_exists('loop_columns')) {
 						
 						break; 
 					default: 
+						echo '<a href="'.get_site_url().'/shop">Back to Products</a>';
 						woocommerce_content(); 
 						break; 
 				}
@@ -73,13 +76,16 @@ if (!function_exists('loop_columns')) {
 			//Main Shop page layout 
 			elseif(is_shop() || is_product_category() || is_product_tag()) {
 				?>
-
-
+<h1>Shop</h1>
+<?php $Path=$_SERVER['REQUEST_URI'];
+preg_match("/[^\/]+$/", $Path, $matches);
+$last_word = $matches[0];
+$check_category= basename($Path); ?>
 			<div id="post-area" class="col span_9">
-				<h1 class="page-title"><?php the_title(); ?></h1>
+				
 				
 				<div class="mobile-filter">
-				<p class="filters">Filter Products</p>
+				<p class="filters">Filter Products <i class="fa fa-angle-down" aria-hidden="true"></i></p>
 
 					<div id="options">
 						Availability By Region
@@ -105,17 +111,58 @@ if (!function_exists('loop_columns')) {
 												        'parent' => $prodID,
 												) );
 										if($term->parent == 0) {
+												$category_link = get_category_link($prodID);
+												$category_link = basename($category_link);
+												if($category_link === $check_category){
+													$checked = 'checked';
+												}
+												else{
+													$checked ='';
+												}
 												
 												$prodName = $term->name; 
 												$prodName = preg_replace('/\s+/', '', $prodName);
-												echo '<input type="checkbox" value=".mobile-'.$prodName.'" id="mobile-'.$prodName.'"/><label for="mobile-'.$prodName.'">'.esc_html($term->name).'</label>';
+												echo '<input type="checkbox" value=".mobile-'.$prodName.'" id="mobile-'.$prodName.'"'.$checked.'/><label for="mobile-'.$prodName.'">'.esc_html($term->name).'</label>';
 
 												if( ! empty( $children ) ) {
 													echo '<div class="child-checkbox">';
 													foreach($children as $child){
+														$childID = $child->term_id;
+
+														$category_link = get_category_link($childID);
+														$category_link = basename($category_link);
+														if($category_link === $check_category){
+															$checked = 'checked';
+														}
+														else{
+															$checked ='';
+														}
 														$childName = $child->name;
 														$childName = preg_replace('/\s+/', '', $childName);
-												    	echo '<input type="checkbox" value=".mobile-'.$childName.'" id="mobile-'.$childName.'"/><label for="mobile-'.$childName.'">'.esc_html($child->name).'</label>';
+												    	echo '<input type="checkbox" value=".mobile-'.$childName.'" id="mobile-'.$childName.'"'.$checked.'/><label for="mobile-'.$childName.'">'.esc_html($child->name).'</label>';
+													}
+													
+													$grandchild = get_terms('product_cat', array(
+														'hide_empty' => true,
+														'parent' => $childID,
+														)
+													);
+													if(!empty($grandchild)){
+														foreach($grandchild as $grand){
+															$grandID = $grand->term_id;
+
+															$category_link = get_category_link($grandID);
+															$category_link = basename($category_link);
+															if($category_link === $check_category){
+																$checked = 'checked';
+															}
+															else{
+																$checked ='';
+															}
+															$grandName = $grand->name;
+															$grandName = preg_replace('/\s+/', '', $grandName);
+													    	echo '<input type="checkbox" value=".mobile-'.$grandName.'" id="mobile-'.$grandName.'"'.$checked.'/><label for="mobile-'.$grandName.'">'.esc_html($grand->name).'</label>';
+												    	}
 													}
 													echo '</div>';
 												}
@@ -140,6 +187,7 @@ if (!function_exists('loop_columns')) {
 
 				</div>
 				<div class="facetwp-template">
+				
 					<ul class="products grid">
 						<?php 
 							$params = array(
@@ -253,18 +301,58 @@ if (!function_exists('loop_columns')) {
 											        'hide_empty' => true,
 											        'parent' => $prodID,
 											) );
-									if($term->parent == 0) {
-											
+										if($term->parent == 0) {
+											$category_link = get_category_link($prodID);
+											$category_link = basename($category_link);
+											if($category_link === $check_category){
+												$checked = 'checked';
+											}
+											else{
+												$checked ='';
+											}
 											$prodName = $term->name; 
 											$prodName = preg_replace('/\s+/', '', $prodName);
-											echo '<input type="checkbox" value=".'.$prodName.'" id="'.$prodName.'"/><label for="'.$prodName.'">'.esc_html($term->name).'</label>';
+											echo '<input type="checkbox" value=".'.$prodName.'" id="'.$prodName.'"'.$checked.'/><label for="'.$prodName.'">'.esc_html($term->name).'</label>';
 
 											if( ! empty( $children ) ) {
 												echo '<div class="child-checkbox">';
 												foreach($children as $child){
+													$childID = $child->term_id;
+
+													$category_link = get_category_link($childID);
+													$category_link = basename($category_link);
+													if($category_link === $check_category){
+														$checked = 'checked';
+													}
+													else{
+														$checked ='';
+													}
 													$childName = $child->name;
 													$childName = preg_replace('/\s+/', '', $childName);
-											    	echo '<input type="checkbox" value=".'.$childName.'" id="'.$childName.'"/><label for="'.$childName.'">'.esc_html($child->name).'</label>';
+											    	echo '<input type="checkbox" value=".'.$childName.'" id="'.$childName.'"'.$checked.'/><label for="'.$childName.'">'.esc_html($child->name).'</label>';
+												}
+												
+												$grandchild = get_terms('product_cat', array(
+													'hide_empty' => true,
+													'parent' => $childID,
+													)
+												);
+												if(!empty($grandchild)){
+													foreach($grandchild as $grand){
+														$grandID = $grand->term_id;
+
+														$category_link = get_category_link($grandID);
+														$category_link = basename($category_link);
+														if($category_link === $check_category){
+															$checked = 'checked';
+														}
+														else{
+															$checked ='';
+														}
+														$grandName = $grand->name;
+														$grandName = preg_replace('/\s+/', '', $grandName);
+												    	echo '<input type="checkbox" value=".'.$grandName.'" id="'.$grandName.'"'.$checked.'/><label for="'.$grandName.'">'.esc_html($grand->name).'</label>';
+											    	}
 												}
 												echo '</div>';
 											}
