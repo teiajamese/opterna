@@ -268,6 +268,182 @@ span.region{
 .posted_in{
     display: block;
 }
+.select2-results .select2-disabled{
+    display: none !important;
+}
+body.single-product div.product .product_title{
+    font-size: 41px;
+    line-height: 46px;
+}
+ body.single-product div.product h4.composited_product_title{
+    padding-right:0px;
+ }
+.woocommerce .single-product-summary .entry-summary p.component_section_title{
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+.composite_pagination .pagination_element_current .element_title .element_link{
+    color: #fff;
+}
+.composite_form .composite_pagination ul.pagination_elements li a{
+   color: #b13b12; 
+}
+/** Pink Arrow **/
+.composite_form .composite_pagination ul.pagination_elements li{
+    top: 3px;
+    display: inline-block;
+    position: relative;
+    height: 66px;
+    width: 147px;
+    border-right: none;
+    background: -webkit-linear-gradient(#fedcce, #febca8);
+    background: -o-linear-gradient(#fedcce, #febca8);
+    background: -moz-linear-gradient(#fedcce, #febca8);
+    background: linear-gradient(#fedcce, #febca8);
+    cursor: pointer;
+    padding-left: 10px;
+    padding-top: 17px;
+    font-size: 18px;
+    margin-left: -3px;
+    text-align: center;
+    
+}
+
+.composite_form .composite_pagination ul.pagination_elements li:after{
+    position: absolute;
+    top: 14px;
+    right: -30px;
+    width: 37px;
+    height: 37px;
+    transform: rotate(135deg) skewX(-9deg) skewY(-9deg);
+    background: -webkit-linear-gradient(45deg,#fedcce, #febca8);
+    background: -o-linear-gradient(45deg,#fedcce, #febca8);
+    background: -moz-linear-gradient(45deg,#fedcce, #febca8);
+    background: linear-gradient(45deg,#fedcce, #febca8);
+    content: '';
+    border-left: #b13b12 solid 2px;
+    border-top: #b13b12 solid 2px;
+    z-index: 1;
+    -webkit-backface-visibility: hidden;
+}
+/** Orange **/
+.composite_form .composite_pagination ul.pagination_elements li.pagination_element_current{
+
+    display: inline-block;
+    position: relative;
+    height: 66px;
+    width: 147px;
+    border-right: none;
+    background: -webkit-linear-gradient(#fcba39, #f49032);
+    background: -o-linear-gradient(#fcba39, #f49032);
+    background: -moz-linear-gradient(#fcba39, #f49032);
+    background: linear-gradient(#fcba39, #f49032);
+    cursor: pointer;
+    z-index: 1;
+    padding-left: 10px;
+    padding-top: 17px;
+    font-size: 18px;
+    text-align:center;
+}
+.composite_form .composite_pagination ul.pagination_elements li.pagination_element_current:not(:first-child){
+    display: inline-block;
+    position: relative;
+    height: 66px;
+    width: 147px;
+    border-right: none;
+    background: -webkit-linear-gradient(#fcba39, #f49032);
+    background: -o-linear-gradient(#fcba39, #f49032);
+    background: -moz-linear-gradient(#fcba39, #f49032);
+    background: linear-gradient(#fcba39, #f49032);
+    cursor: pointer;
+    z-index: 1;
+    padding-left: 10px;
+    padding-top: 17px;
+    font-size: 18px;
+    text-align:center;
+}
+.composite_form .composite_pagination ul.pagination_elements li.pagination_element_current:after{
+    position: absolute;
+    top: 13px;
+    right: -30px;
+    width: 40px;
+    height: 40px;
+    transform: rotate(135deg) skewX(-9deg) skewY(-9deg);
+    background: -webkit-linear-gradient(45deg,#fcba39, #f49032);
+    background: -o-linear-gradient(45deg,#fcba39, #f49032);
+    background: -moz-linear-gradient(45deg,#fcba39, #f49032);
+    background: linear-gradient(45deg,#fcba39, #f49032);
+    content: '';
+    border: none;
+    -webkit-backface-visibility: hidden;
+}
+.composite_form .composite_pagination ul.pagination_elements li.pagination_element_current:not(:first-child):before{
+    position: absolute;
+    top: 13px;
+    left: -20px;
+    width: 40px;
+    height: 40px;
+    transform: rotate(135deg) skewX(-9deg) skewY(-9deg);
+    background: -webkit-linear-gradient(45deg,#fedcce, #febca8);
+    background: -o-linear-gradient(45deg,#fedcce, #febca8);
+    background: -moz-linear-gradient(45deg,#fedcce, #febca8);
+    background: linear-gradient(45deg,#fedcce, #febca8);
+    content: '';
+    border: none;
+    -moz-box-shadow: inset 4px 4px 6px -4px rgba(0,0,0,0.6);
+    -webkit-box-shadow: inset 4px 4px 6px -4px rgba(0,0,0,0.6);
+    box-shadow: inset 4px 4px 6px -4px rgba(0,0,0,0.6);
+    -webkit-backface-visibility: hidden;
+}
+/*gray arrow*/
+.composite_form .composite_pagination ul.pagination_elements li.pagination_element_current ~ li a{
+    color: #9b9b9b; 
+}
+.composite_form .composite_pagination ul.pagination_elements li.pagination_element_current ~ li{
+    display: inline-block;
+    position: relative;
+    height: 66px;
+    width: 147px;
+    border-right: none;
+    background: -webkit-linear-gradient(#f9fafa, #e7e8e9);
+    background: -o-linear-gradient(#f9fafa, #e7e8e9);
+    background: -moz-linear-gradient(#f9fafa, #e7e8e9);
+    background: linear-gradient(#f9fafa, #e7e8e9);
+    cursor: pointer;
+    padding-left: 10px;
+    padding-top: 17px;
+    font-size: 18px;
+    text-align: center;
+}
+.composite_form .composite_pagination ul.pagination_elements li.pagination_element_current ~ li:after{
+    position: absolute;
+    top: 12px;
+    right: -30px;
+    width: 40px;
+    height: 40px;
+    transform: rotate(135deg) skewX(-9deg) skewY(-9deg);
+    background: -webkit-linear-gradient(45deg,#f9fafa, #e7e8e9);
+    background: -o-linear-gradient(45deg,#f9fafa, #e7e8e9);
+    background: -moz-linear-gradient(45deg,#f9fafa, #e7e8e9);
+    background: linear-gradient(45deg,#f9fafa, #e7e8e9);
+    content: '';
+    border-left: #d1d2d3 solid 2px;
+    border-top: #d1d2d3 solid 2px;
+    z-index: 1;
+    -webkit-backface-visibility: hidden;
+}
+.composite_form .composite_pagination ul.pagination_elements li:first-child{
+    padding-left: 15px;
+}
+span.step_title, span.step_index, body.single-product div.product h4.composited_product_title{
+    font-size: 24px;
+}
+.woocommerce div.product h2.component_title.product_title{
+    margin-bottom: 0em;
+}
+.woocommerce .woocommerce-tabs > div h2{
+    font-size: 24px;
+}
 @media (min-width: 690px){
     .span_4 {
         width: 30%;
@@ -322,5 +498,111 @@ span.region{
     }
     .ascend #header-outer .cart-menu{
         padding-left:20px !important;
+    }
+    .composite_form .composite_pagination ul.pagination_elements li{
+        top: 3px;
+        display: inline-block;
+        position: relative;
+        height: 61px;
+        width: 116px;
+        border-right: none;
+        background: -webkit-linear-gradient(#fedcce, #febca8);
+        background: -o-linear-gradient(#fedcce, #febca8);
+        background: -moz-linear-gradient(#fedcce, #febca8);
+        background: linear-gradient(#fedcce, #febca8);
+        cursor: pointer;
+        padding-left: 4px;
+        padding-top: 17px;
+        font-size: 15px;
+        margin-left: -3px;
+        text-align: center;
+    }
+    .composite_form .composite_pagination ul.pagination_elements li:first-child {
+        padding-left: 0px;
+    }.composite_form .composite_pagination ul.pagination_elements li.pagination_element_current.pagination_element_review{
+        width: 109px;
+    }
+    .composite_form .composite_pagination ul.pagination_elements li.pagination_element_current:not(:first-child){
+            display: inline-block;
+    position: relative;
+    height: 61px;
+    width: 116px;
+    border-right: none;
+    background: -webkit-linear-gradient(#fcba39, #f49032);
+    background: -o-linear-gradient(#fcba39, #f49032);
+    background: -moz-linear-gradient(#fcba39, #f49032);
+    background: linear-gradient(#fcba39, #f49032);
+    cursor: pointer;
+    z-index: 1;
+    padding-left: 8px;
+    padding-top: 17px;
+    font-size: 15px;
+    text-align: center;
+    }
+    .composite_form .composite_pagination ul.pagination_elements li.pagination_element_current ~ li{
+        display: inline-block;
+        position: relative;
+        height: 61px;
+        width: 119px;
+        border-right: none;
+        background: -webkit-linear-gradient(#f9fafa, #e7e8e9);
+        background: -o-linear-gradient(#f9fafa, #e7e8e9);
+        background: -moz-linear-gradient(#f9fafa, #e7e8e9);
+        background: linear-gradient(#f9fafa, #e7e8e9);
+        cursor: pointer;
+        padding-left: 10px;
+        padding-top: 17px;
+        font-size: 15px;
+        text-align: center;
+    }
+    .composite_form .composite_pagination ul.pagination_elements li.pagination_element_current:not(:first-child):before {
+        position: absolute;
+        top: 13px;
+        left: -19px;
+        width: 37px;
+        height: 37px;
+        transform: rotate(134deg) skewX(-9deg) skewY(-9deg);
+        background: -webkit-linear-gradient(45deg,#fedcce, #febca8);
+        background: -o-linear-gradient(45deg,#fedcce, #febca8);
+        background: -moz-linear-gradient(45deg,#fedcce, #febca8);
+        background: linear-gradient(45deg,#fedcce, #febca8);
+        content: '';
+        border: none;
+        -moz-box-shadow: inset 4px 4px 6px -4px rgba(0,0,0,0.6);
+        -webkit-box-shadow: inset 4px 4px 6px -4px rgba(0,0,0,0.6);
+        box-shadow: inset 4px 4px 6px -4px rgba(0,0,0,0.6);
+        -webkit-backface-visibility: hidden;
+    }
+    .composite_form .composite_pagination ul.pagination_elements li.pagination_element_current {
+        display: inline-block;
+        position: relative;
+        height: 61px;
+        width: 113px;
+        border-right: none;
+        background: -webkit-linear-gradient(#fcba39, #f49032);
+        background: -o-linear-gradient(#fcba39, #f49032);
+        background: -moz-linear-gradient(#fcba39, #f49032);
+        background: linear-gradient(#fcba39, #f49032);
+        cursor: pointer;
+        z-index: 1;
+        padding-left: 10px;
+        padding-top: 17px;
+        font-size: 15px;
+        text-align: center;
+    }
+.composite_form .composite_pagination ul.pagination_elements li.pagination_element_current ~ li:after,.composite_form .composite_pagination ul.pagination_elements li:after{
+            position: absolute;
+    top: 12px;
+    right: -30px;
+    width: 36px;
+    height: 35px;
+    transform: rotate(135deg) skewX(-9deg) skewY(-9deg);
+    }
+    .composite_form .composite_pagination ul.pagination_elements li.pagination_element_current:after{
+        top: 13px;
+        right: -28px;
+        width: 36px;
+        height: 36px;
+        transform: rotate(135deg) skewX(-9deg) skewY(-9deg);
     }
 }
